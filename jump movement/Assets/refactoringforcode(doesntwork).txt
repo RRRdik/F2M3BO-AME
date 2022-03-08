@@ -1,0 +1,7 @@
+isJumpingHash = animator.StringToHash("isJumping");
+ bool isJumping = animator.GetBool("isJumping");
+        bool jumpPressed = Input.GetKey("space");
+animator.SetBool("isJumping", true);            
+            
+            
+animator.SetBool("isJumping", false);
