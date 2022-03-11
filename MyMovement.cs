@@ -2,33 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MyMovement : MonoBehaviour
+public class MyMovement123 : MonoBehaviour
 {
-    private CharacterController controller;
-    private Vector3 playerVelocity;
-    private bool groundedPlayer;
-    private float playerSpeed = 2.0f;
-
-    private void Start()
+    public Rigidbody rb;
+    public bool canJump = false;
+    // Start is called before the first frame update
+    void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        groundedPlayer = controller.isGrounded;
-        if (groundedPlayer && playerVelocity.y < 0)
+        if (Input.GetKey(KeyCode.A))
         {
-            playerVelocity.y = 0f;
+            transform.position += new Vector3(-10 * Time.deltaTime, 0, 0);
         }
-
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
-        if (move != Vector3.zero)
+        if (Input.GetKey(KeyCode.D))
         {
-            gameObject.transform.forward = move;
+            transform.position += new Vector3(10 * Time.deltaTime, 0, 0);
         }
-        controller.Move(playerVelocity * Time.deltaTime);
+        if (Input.GetKey(KeyCode.W))
+        {
+            transform.position += new Vector3(0, 0, 10 * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            transform.position += new Vector3(0, 0, -10 * Time.deltaTime);
+        }
+        if (canJump == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 10, 0);
+            canJump = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.gameObject.name);
+        canJump = true;
     }
 }
