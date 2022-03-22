@@ -27,6 +27,46 @@ public class animationScript : MonoBehaviour
         {
             animator.SetBool("isJumping", false);
         }
+        
+        if (Input.GetKey("w"))
+        {
+            animator.SetBool("isWalking", true);
+        }
+
+        if (!Input.GetKey("w"))
+        {
+            animator.SetBool("isWalking", false);
+        }
+        
+        if (Input.GetKey("a"))
+        {
+            animator.SetBool("isWalkingleft", true);
+        }
+
+        if (!Input.GetKey("a"))
+        {
+            animator.SetBool("isWalkingleft", false);
+        }
+        
+        if (Input.GetKey("d"))
+        {
+            animator.SetBool("isWalkingright", true);
+        }
+
+        if (!Input.GetKey("d"))
+        {
+            animator.SetBool("isWalkingright", false);
+        }
+        
+        if (Input.GetKey("s"))
+        {
+            animator.SetBool("isWalkingback", true);
+        }
+
+        if (!Input.GetKey("s"))
+        {
+            animator.SetBool("isWalkingback", false);
+        }
     }
 
 }
