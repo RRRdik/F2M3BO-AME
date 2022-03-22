@@ -23,19 +23,19 @@ using UnityEngine;
          void Update(){
              if (Input.GetKey(KeyCode.A))
             {
-                transform.position += new Vector3(5* Time.deltaTime, 0, 0);
+                transform.position += new Vector3(3* Time.deltaTime, 0, 0);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                transform.position += new Vector3(-5 * Time.deltaTime, 0, 0);
+                transform.position += new Vector3(-3 * Time.deltaTime, 0, 0);
             }
             if (Input.GetKey(KeyCode.W))
             {
-                transform.position += new Vector3(0, 0, -5 * Time.deltaTime);
+                transform.position += new Vector3(0, 0, -3 * Time.deltaTime);
             }
             if (Input.GetKey(KeyCode.S))
             {
-                transform.position += new Vector3(0, 0, 5 * Time.deltaTime);
+                transform.position += new Vector3(0, 0, 2 * Time.deltaTime);
             }
              if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
      
